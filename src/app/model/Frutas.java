@@ -1,7 +1,7 @@
 package app.model;
 
 public class Frutas {
-    private int contador = 0;
+    private static  int contador = 0;
     private int id;
     private String nombre;
     private String color;
@@ -12,7 +12,7 @@ public class Frutas {
     // recordar que se usan las funciones get para que sean manejables los errores
     // Constructor de Frutas
     public Frutas(String nombre, String color, double peso, double precio, boolean esOrganica){
-        setId(id);
+        this.id = ++contador;
         setNombre(nombre);
         setColor(color);
         setPeso(peso);
@@ -22,9 +22,6 @@ public class Frutas {
 
     public int getId() {
         return id;
-    }
-    public void setId(int id) {
-        this.id = contador++;
     }
 
     // get y set de Nombre
@@ -41,7 +38,7 @@ public class Frutas {
         return color;
     }
     public void setColor(String color){
-        if (color == null || color.trim().isEmpty()) throw new IllegalArgumentException("El color puede estar vacio");
+        if (color == null || color.trim().isEmpty()) throw new IllegalArgumentException("El color no puede estar vacio");
         this.color = color;
     }
 
@@ -50,10 +47,10 @@ public class Frutas {
         return peso;
     }
     public void setPeso(double peso) {
-        this.peso = peso;
+
 
         if(peso <= 0) throw new IllegalArgumentException("El peso debe ser positivo");
-
+        this.peso = peso;
     }
 
     // get y set de precio
@@ -62,6 +59,7 @@ public class Frutas {
     }
     public void setPrecio(double precio){
         if(precio <= 0) throw new IllegalArgumentException("El precio debe ser mayor a 0");
+        this.precio = precio;
     }
 
    // para convertir un objeto a una representación en texto
