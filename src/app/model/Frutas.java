@@ -12,12 +12,19 @@ public class Frutas {
     // recordar que se usan las funciones get para que sean manejables los errores
     // Constructor de Frutas
     public Frutas(String nombre, String color, double peso, double precio, boolean esOrganica){
-        this.id = contador++;
+        setId(id);
         setNombre(nombre);
         setColor(color);
         setPeso(peso);
         setPrecio(precio);
         this.esOrganica = esOrganica;
+    }
+
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = contador++;
     }
 
     // get y set de Nombre
